@@ -13,7 +13,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "UPDATE hospitalfinder.info SET status='".$status."' WHERE transaction_no='".$transaction_no."'";
+$sql = "UPDATE info SET status='".$status."' WHERE transaction_no='".$transaction_no."'";
 
 if ($conn->query($sql) === TRUE) {
   echo "success";

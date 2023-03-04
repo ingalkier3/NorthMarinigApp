@@ -13,7 +13,7 @@ $sql = "SELECT count(*) as `total_booking`,
 COUNT(if(status='for approval',1,NULL)) as `pending_booking`,
 COUNT(if(status='approved',1,NULL)) as `approved_booking`,
 COUNT(if(status='disapproved',1,NULL)) as `disapproved_booking`
- FROM hospitalfinder.info;";
+ FROM info;";
 
 $result = $conn->query($sql);
 

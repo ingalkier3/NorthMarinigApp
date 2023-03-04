@@ -39,7 +39,14 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
     <a id="a_dashboard" href="http://localhost/SAD2/admin_index.php?page=dashboard" class="w3-bar-item w3-button w3-padding"><i class="fa fa-dashboard fa-fw"></i>  Dashboard </a>
 
+
     <a id="a_booking" href="http://localhost/SAD2/admin_index.php?page=booking" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i>  Booking </a>
+
+
+     <a id="a_clinic" href="http://localhost/SAD2/admin_index.php?page=clinic" class="w3-bar-item w3-button w3-padding"><i class="fa fa-home fa-fw"></i> Clinic Appointment </a>
+
+
+    <a id="a_clients_information" href="http://localhost/SAD2/admin_index.php?page=clients_information" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw"></i> Clients Information </a>
 
 
 
@@ -62,6 +69,15 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <?php elseif ($_GET['page'] == 'add_admin'): 
     include_once 'add_admin.php';
   ?>  
+
+<?php elseif ($_GET['page'] == 'clinic'): 
+    include_once 'clinic.php';
+  ?> 
+
+  <?php elseif ($_GET['page'] == 'clients_information'): 
+    include_once 'clients_information.php';
+  ?>  
+
 <?php else: 
 
    include_once 'dashboard.php';?>

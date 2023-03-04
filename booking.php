@@ -11,7 +11,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM hospitalfinder.info;";
+$sql = "SELECT * FROM info;";
 
 $result = $conn->query($sql);
 
@@ -56,7 +56,7 @@ $arr_status = array('approved','disapproved');
           <th scope="col">Location</th>
           <th scope="col">Contact</th>
           <th scope="col">Email</th>
-          <th scope="col">Age</th>
+          <th scope="col">Birthdate</th>
           <th scope="col">Status</th>
            <th scope="col">Action</th>
         </tr>
@@ -70,15 +70,15 @@ $arr_status = array('approved','disapproved');
             <?php if(in_array($row['status'], $arr_status)): ?>
                <tr>
                 <td><?=$row['transaction_no']?></td>
-                <td ><?=$row['First_name']?></td>
-                <td ><?=$row['Last_name']?></td>
-                <td ><?=$row['Location']?></td>
-                <td><?=$row['Contact']?></td>
-                <td ><?=$row['Email']?></td>
-                <td><?=$row['Age']?></td>
+                <td ><?=$row['firstname']?></td>
+                <td ><?=$row['lastname']?></td>
+                <td ><?=$row['address']?></td>
+                <td><?=$row['contact']?></td>
+                <td ><?=$row['email']?></td>
+                <td><?=$row['bdate']?></td>
                 <td><?=$row['status']?></td>
                 <td class="">
-                   <button  onclick="openModal('<?=$row['transaction_no']?>', '<?=$row['First_name'].' '.$row['Last_name']?>','<?=$row['status']?>' )" class="w3-btn w3-ripple w3-green">Change Status</button>
+                   <button  onclick="openModal('<?=$row['transaction_no']?>', '<?=$row['firstname'].' '.$row['lastname']?>','<?=$row['status']?>' )" class="w3-btn w3-ripple w3-green">Change Status</button>
                 </td>
               </tr>
             <?php endif ?>

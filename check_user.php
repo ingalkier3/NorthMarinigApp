@@ -20,7 +20,7 @@
 		  die("Connection failed: " . $conn->connect_error);
 		}
 
-		$sql = "SELECT * FROM hospitalfinder.tbl_users where c_username = '$txt_username' and c_password = '$txt_password';";
+		$sql = "SELECT * FROM tbl_users where c_username = '$txt_username' and c_password = '$txt_password';";
 
 		$result = $conn->query($sql);
 
