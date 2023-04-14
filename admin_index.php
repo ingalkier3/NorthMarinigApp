@@ -37,18 +37,18 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
 
-    <a id="a_dashboard" href="http://localhost/SAD2/admin_index.php?page=dashboard" class="w3-bar-item w3-button w3-padding"><i class="fa fa-dashboard fa-fw"></i>  Dashboard </a>
+    <a id="a_dashboard" href="admin_index.php?page=dashboard" class="w3-bar-item w3-button w3-padding"><i class="fa fa-dashboard fa-fw"></i>  Dashboard </a>
 
 
-    <a id="a_booking" href="http://localhost/SAD2/admin_index.php?page=booking" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i>  Booking </a>
+    <a id="a_booking" href="admin_index.php?page=booking" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i>  Booking </a>
 
 
-     <a id="a_clinic" href="http://localhost/SAD2/admin_index.php?page=clinic" class="w3-bar-item w3-button w3-padding"><i class="fa fa-home fa-fw"></i> Clinic Appointment </a>
+     <a id="a_clinic" href="admin_index.php?page=clinic" class="w3-bar-item w3-button w3-padding"><i class="fa fa-home fa-fw"></i> Clinic Appointment </a>
 
 
-    <a id="a_clients_information" href="http://localhost/SAD2/admin_index.php?page=clients_information" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw"></i> Clients Information </a>
-
-
+    <a id="a_clients_information" href="/admin_index.php?page=clients_information" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw"></i> Clients Information </a>
+    
+    <a id="a_clients_verifier" href="/admin_index.php?page=client_verifier" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw"></i> Clients Verifier </a>
 
     <a href="logout.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-power-off fa-fw"></i>  Logout </a>
 
@@ -76,7 +76,11 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <?php elseif ($_GET['page'] == 'clients_information'): 
     include_once 'clients_information.php';
-  ?>  
+  ?> 
+  
+  <?php elseif ($_GET['page'] == 'client_verifier'): 
+    include_once 'client_verifier.php';
+  ?> 
 
 <?php else: 
 

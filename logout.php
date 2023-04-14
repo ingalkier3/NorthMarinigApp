@@ -2,5 +2,5 @@
 
 	session_start();
 	session_destroy();
-	header('Location: '.'http://localhost/SAD2/login.php');
+	header('Location: '.'login.php');
  ?>

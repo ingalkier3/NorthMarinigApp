@@ -1,5 +1,7 @@
 <?php 
 	
+
+	include_once 'database.php';
 	session_start();
 
 	// variable that store the value of username and password passed by JS
@@ -7,10 +9,11 @@
 	$txt_password = $_POST['password'];
 
 
+
 	//logic to check if username and password inputted by user is correct
 	
 	// Create connection
-		$conn = mysqli_connect("localhost", "root", "", "hospitalfinder");
+		$conn = new mysqli($servername, $username, $password, $dbname);
 		// Check connection
 
 		$is_success = false;
@@ -43,9 +46,9 @@
 		$conn->close();
 
 		if ($is_success) {
-			header('Location: '.'http://localhost/SAD2/admin_index.php');
+			header('Location: '.'admin_index.php');
 		}else {
-			header('Location: '.'http://localhost/SAD2/login.php?err=login');
+			header('Location: '.'login.php?err=login');
 		}
 
 		

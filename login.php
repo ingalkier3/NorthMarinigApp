@@ -6,7 +6,7 @@
     if (isset($_SESSION['is_login'])) {
     
       if ($_SESSION['is_login']) { 
-       header('Location: '.'http://localhost/SAD2/admin_index.php');
+       header('Location: '.'admin_index.php');
       }
 
     }

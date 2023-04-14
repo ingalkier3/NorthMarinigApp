@@ -1,6 +1,7 @@
 
 <?php 
    $temp = $_GET['temp'];
+   $to = $_GET['email'];
     
     $message = "<!DOCTYPE html>
 <html lang='en' xmlns='http://www.w3.org/1999/xhtml' xmlns:v='urn:schemas-microsoft-com:vml' xmlns:o='urn:schemas-microsoft-com:office:office'>
@@ -325,7 +326,7 @@ ul.social li{
 <table role='presentation' border='0' cellpadding='0' cellspacing='0' width='100%'>
 <tr>
 <td class='logo' style='text-align: center;'>
-<h1><a href='#'>e-Verify</a></h1>
+<h1><a href='#'>North Marinig Clinic</a></h1>
 </td>
 </tr>
 </table>
@@ -344,7 +345,7 @@ ul.social li{
 <div class='text' style='padding: 0 2.5em; text-align: center;'>
 <h2>Please verify your email</h2>
 <h3>To proceed to your booking please click yes</h3>
-<p><a href='http://localhost/SAD2/thankyou.php?temp=$temp' class='btn btn-primary'>Yes! Book Me</a></p>
+<p><a href='https://northmarinigappointment.000webhostapp.com/thankyou.php?temp=$temp' class='btn btn-primary'>Yes! Book Me</a></p>
 </div>
 </td>
 </tr>
@@ -413,20 +414,23 @@ ul.social li{
     //var_dump($message);
 
 
-    $header = 'From: ingalkier3@gmail.com';
+    $header = "MIME-Version: 1.0" . "\r\n"; 
+    $header .= "Content-type:text/html;charset=UTF-8" . "\r\n"; 
+     
+    // Additional headers 
+    $header .= 'From: NMC@gmail.com' . "\r\n"; 
+
+
     $subject = 'from North Marinig Center Booking for Confirmation';
-    $to = "ingalkier3@gmail.com";
     
     $result = mail($to,$subject,$message, $header);
     
     if($result) {
-        echo("message sent to".$to);
+        //echo("message sent to".$to);
     }else {
          $errorMessage = error_get_last()['message'];
          echo($errorMessage);
     }
-
-    return;
 
  ?>
 

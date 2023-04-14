@@ -1,6 +1,7 @@
 <?php 
 
-
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
   include_once 'database.php';
     $temp = $_GET['temp'];
 
@@ -14,12 +15,40 @@ if ($conn->connect_error) {
 $sql = "UPDATE info SET status='for approval' WHERE id=".$temp;
 
 if ($conn->query($sql) === TRUE) {
-  echo "success";
+  //echo "success";
 } else {
   echo "Error updating record: " . $conn->error;
 }
 
+
+
+// Create connection
+$conn1 = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn1->connect_error) {
+  die("Connection failed: " . $conn1->connect_error);
+}
+
+$refNo = "";
+
+$sql = "SELECT * FROM info WHERE id=".$temp;
+
+$result = $conn1->query($sql);
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+    $refNo = $row["transaction_no"].','.$row['firstname'].','.$row['lastname'].','.$row['address'].','.$row['contact'].','.$row['email'].','.$row['bdate'].','.$row['preferred_date'].','.$row['suffix'].','.$row['client_username'].','.$row['status'];
+  }
+} else {
+  echo "0 results";
+}
+
 $conn->close();
+$conn1->close();
+
+
+
 
 
  ?>
@@ -63,6 +92,9 @@ $conn->close();
 
       <h2>You successfully created your booking. Thank You for using this web. Come Again</h2>
       <h1><img src="doctor.jpg" style="height:500px;width:500px;"></h1>
+
+
+      <a href="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=<?=$refNo?>&choe=UTF-8">Click here to download your QR</a>
 
       <div class="container">
   <form action="action_page.php">

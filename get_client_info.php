@@ -16,7 +16,9 @@
 		  die("Connection failed: " . $conn->connect_error);
 		}
 
-		$sql = "SELECT * FROM info where client_username='$client_username' order by id desc limit $limit";
+		$sql = "SELECT transaction_no, client_username, suffix, firstname, lastname, contact, email, bdate, preferred_date, address, status FROM `info` where client_username='$client_username' order by id desc limit $limit";
+		
+		//var_dump($sql);
 
 		$result = $conn->query($sql);
 		$arr = [];
@@ -24,6 +26,7 @@
 		if ($result->num_rows > 0) {
 		  	if($limit == 1) {
 		  		while ($row = $result->fetch_assoc()) {
+		  		   
 		  			echo  json_encode($row);
 		  		}
 		  	}else {

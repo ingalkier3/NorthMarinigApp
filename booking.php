@@ -37,9 +37,9 @@ $arr_status = array('approved','disapproved');
   <header class="w3-container" style="padding-top:22px">
     <h5><b><i class="fa fa-history"></i> Booking </b></h5>
     <?php if (isset($_GET['book'])): ?>
-      <a href="http://localhost/SAD2/admin_index.php?page=booking" style="float: right; " class="w3-btn w3-ripple w3-blue" > Pending Booking </a>
+      <a href="admin_index.php?page=booking" style="float: right; " class="w3-btn w3-ripple w3-blue" > Pending Booking </a>
     <?php else: ?>
-        <a href="http://localhost/SAD2/admin_index.php?page=booking&book=history" style="float: right; " class="w3-btn w3-ripple w3-blue" > Booking History</a>
+        <a href="admin_index.php?page=booking&book=history" style="float: right; " class="w3-btn w3-ripple w3-blue" > Booking History</a>
     <?php endif ?>
     
   </header>
@@ -78,7 +78,11 @@ $arr_status = array('approved','disapproved');
                 <td><?=$row['bdate']?></td>
                 <td><?=$row['status']?></td>
                 <td class="">
-                   <button  onclick="openModal('<?=$row['transaction_no']?>', '<?=$row['firstname'].' '.$row['lastname']?>','<?=$row['status']?>' )" class="w3-btn w3-ripple w3-green">Change Status</button>
+                    
+                     <?php if (!isset($_GET['book'])): ?>
+                        <button  onclick="openModal('<?=$row['transaction_no']?>', '<?=$row['firstname'].' '.$row['lastname']?>','<?=$row['status']?>' )" class="w3-btn w3-ripple w3-green">Change Status</button>
+                    <?php endif ?>
+                   
                 </td>
               </tr>
             <?php endif ?>

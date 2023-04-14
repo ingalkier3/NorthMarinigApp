@@ -51,6 +51,11 @@
   text-decoration: none;
   cursor: pointer;
 }
+
+.image{
+  max-width: 250px;
+  min-width: 100px;
+}
 </style>
 
 
@@ -77,7 +82,16 @@
         <div class="card">
           <h2>Please Fill Up The Form</h2>
           <div class="container">
-            <form action="submitlogin.php">
+          <form action="submitlogin.php"  method="post" enctype="multipart/form-data">
+              <div class="row" style="color:white">
+                <div class="col-25">
+                  <label for="image">Picture</label>
+                </div>
+                <div class="col-75">
+                  <img class="image" id="blah" src="#" alt="your image" />
+                  <input required=''   type="file" id="picture" name="picture" placeholder="Upload Profile Picture">
+                </div>
+              </div>
               <div class="row" style="color:white">
                 <div class="col-25">
                   <label for="transaction_no">Transaction No.</label>
@@ -224,12 +238,12 @@
       <!-- Modal content -->
       <div class="modal-content">
         <span class="close">&times;</span>
-        <h4>AWIN USER AGREEMENT </h4>
-        <p>This User Agreement sets out the terms between you and AWIN Limited (“AWIN”)
-        under which you may access the intranet and software platform operated by AWIN
+        <h4>NMC USER AGREEMENT </h4>
+        <p>This User Agreement sets out the terms between you and North Marining Clinic 
+        under which you may access the intranet and software platform operated by North Marinig Clinic
         (the “Interface”). This User Agreement applies to all users of the Interface (each
         a “User” or “You”, collectively “Users”) and constitutes a legally binding
-        agreement between each User individually and AWIN. If you, the User do not accept
+        agreement between each User individually and North Marinig Clinic. If you, the User do not accept
         the terms of this User Agreement, you cannot use the Interface.
         By clicking the ‘Step Two’ button during the registration process you accept the
         terms and conditions of this User Agreement.
@@ -237,22 +251,22 @@
         1.1 When you register on the Website you will be allocated a personal account
         on the Interface, which you can access by entering your username and
         password (“User Account”).
-        1.2 The User Account is for a single User only. AWIN will not permit you to share
+        1.2 The User Account is for a single User only. North Marinig Clinic will not permit you to share
         your username and password with any other person nor with multiple Users
         on a network. Responsibility for the security and confidentiality of any
-        passwords issued rests with you. AWIN will not be liable for any losses or
+        passwords issued rests with you. North Marinig Clinic will not be liable for any losses or
         damages suffered by you due to the disclosure of any User Account
         passwords.
         1.3 All User Accounts must be registered with your own name and a valid
         personal email address that you access regularly so that moderation emails
         can be sent to you. User Accounts registered with someone else's email
         address, or with temporary email addresses, may be closed without notice.
-        AWIN may require Users to revalidate their User Account if AWIN believes
+        North Marinic Clinic may require Users to revalidate their User Account if North Marinig Clinic believes
         they have been using an invalid email address.
         1.4 You will be responsible and liable for all activities occurring under your User
         Account. If you suspect that a third party has gained unauthorised access to
         access data, you must inform DWL immediately by sending an e-mail to
-        compliance@awin.com or such other e-mail address as may be notified to
+        northmarinig@clinic.com or such other e-mail address as may be notified to
         you from time to time.</p>
 
         <input id="btn_accept" type="button" class="btn red" value="Accept">
@@ -266,6 +280,11 @@
     </div>
     <div class="footer">
       <h4>All Right Reserve © to the researchers of the group and presented in Saint Vincent College of Cabuyao.</h4>
+    
+
+      <h5>Creator: Kier Ingal, Dustine Canilang, Marco Capacio</h5>
+
+
     </div>
 
   </body>
@@ -333,6 +352,13 @@ btn_declined.onclick = function() {
       xmlhttp.open("POST", "get_transaction_no.php", true);
       xmlhttp.send(data);
     }, 3000);
+
+  picture.onchange = evt => {
+  const [file] = picture.files
+  if (file) {
+    blah.src = URL.createObjectURL(file)
+  }
+}
   </script>
 </html>
 

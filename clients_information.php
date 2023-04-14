@@ -205,9 +205,13 @@ $result = $conn->query($sql);
     var xmlhttp = new XMLHttpRequest();
 
       xmlhttp.onreadystatechange = function() {
+          
+        
 
           if (xmlhttp.readyState == XMLHttpRequest.DONE) {   // XMLHttpRequest.DONE == 4
              if (xmlhttp.status == 200) {
+                 
+                   console.log( xmlhttp.responseText.toString());
                   
                 var data = JSON.parse( xmlhttp.responseText.toString());
                 console.log(data);  

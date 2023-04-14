@@ -1,5 +1,9 @@
 <?php
-$link = mysqli_connect("localhost", "root", "", "hospitalfinder");
+
+
+	include_once 'database.php';
+
+	$link = new mysqli($servername, $username, $password, $dbname);
 if($link===false){
   die("error:could not connect.".mysqli_connect_error());
 }
